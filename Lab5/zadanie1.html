@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorium 5</title>
+</head>
+<body>
+
+    <script>
+        function funkcjaTestowa() {
+            console.log("Witaj JS!");
+        }
+        funkcjaTestowa();
+
+        function Parzyste(a, b) {
+            let tablica = [];
+            for (let i = a; i <= b; i++) {
+                if (i % 2 === 0) {
+                    tablica.push(i);
+                }
+            }
+            console.log("Tablica liczb parzystych:", tablica);
+        }
+        Parzyste(1, 20);
+
+        function fibonacci(n) {
+            let fib = [0, 1];
+            if (n <= 0) return console.log([]);
+            if (n === 1) return console.log([0]);
+
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            console.log("Ciąg Fibonacciego:", fib);
+        }
+        fibonacci(12);
+
+        function silnia(n) {
+            if (n === 0 || n === 1) return 1;
+            return n * silnia(n - 1);
+        }
+        console.log("Silnia:", silnia(5));
+
+        function Pi(n) {
+            let y = 0;
+            for (let i = 0; i < n; i++) {
+                let mianownik = 2 * i + 1;
+                if (i % 2 === 0) {
+                    y += 1 / mianownik;
+                } else {
+                    y -= 1 / mianownik;
+                }
+            }
+            console.log("Wartość PI (n=" + n + "):", 4 * y);
+        }
+        Pi(100);
+
+        function choinka(n) {
+            for (let i = 1; i <= n; i++) {
+                let spacje = " ".repeat(n - i);
+                let gwiazdki = "*".repeat(2 * i - 1);
+                console.log(spacje + gwiazdki);
+            }
+        }
+        choinka(6);
+
+        function last(n) {
+            let szesc = "0123456789ABCDEF";
+            let result = "";
+            if (n === 0) result = "0";
+            while (n > 0) {
+                let rest = n % 16;
+                result = szesc[rest] + result;
+                n = Math.floor(n / 16);
+            }
+            console.log("Wynik:", result);
+        }
+        last(20);
+    </script>
+
+</body>
+</html>
